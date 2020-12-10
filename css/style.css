@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+    font-size: 12px;
+}
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+body {
+    background-color: var(--white);
+}
+
+:root {
+    --dark-gray: hsl(0, 0%, 63%);
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --very-dark-grey: hsl(0, 0%, 27%);
+}
+
+.none {
+    display: none;
+}
+
+header {
+    position: absolute;
+    display: flex;
+    align-items:center;
+    margin: 40px 50px;
+    color: var(--white);
+}
+
+header > h1 {
+    font-size: 23px;
+    margin-right: 30px;
+}
+
+#nav ul {
+    list-style: none;
+    display: flex;
+}
+
+#nav ul > li {
+    cursor: pointer;
+    margin: 0 15px;
+    text-transform: lowercase;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#nav ul > li:hover {
+    border-bottom: 2.5px solid white;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.text > span:hover {
+    color: var(--very-dark-grey);
+}
+
+.text > span > input {
+    margin-left: 20px;
+    cursor: pointer;
+    border: none;
+    background:url("../images/icon-arrow.svg") center no-repeat;
+    width: 50px;
+}
+
+.text {
+    margin: 60px;
+    justify-self:center; 
+}
+
+.text > h2 {
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.text > p, .footer-description > p {
+    line-height: 18px;
+    opacity: 60%;
+}
+
+.text > span {
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+}
+
+.slide {
+    grid-column: 1 / 10;
+    grid-row: 1/ 3;
+
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.slide.selected {
+    opacity: 1;
+}
+
+.section-image-slide1, .section-image-slide2, .section-image-slide3 {
+    grid-column: 1 / 6;
+    grid-row: 1/ 3;
+    background-size: cover;
+}
+
+.section-image-slide1 {
+    background: url('../images/desktop-image-hero-1.jpg') center no-repeat; 
+}
+
+.section-image-slide2 {
+    background: url('../images/desktop-image-hero-2.jpg') center no-repeat;
+}
+
+.section-image-slide3 {
+    background: url('../images/desktop-image-hero-3.jpg') center no-repeat;
+}
+
+.description {
+    grid-column: 6 / 10;
+    grid-row: 1/ 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} 
+
+.div-btns {
+    width: 100%;
+    height: 80px;
+    grid-column: 6/7;
+    grid-row: 2;
+    display: flex;
+    align-self: end;
+    z-index: 3;
+}
+
+.left, .right {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+}
+
+.left:hover, .right:hover {
+    background-color: var(--very-dark-grey);
+}
+
+.left {
+    background: url('../images/icon-angle-left.svg') center no-repeat black;
+}
+    
+.right {
+    background: url('../images/icon-angle-right.svg') center no-repeat black;
+}
+
+.section-image1, .section-image2 {
+    background-size: cover;
+}
+
+.section-image1 {
+    grid-column: 1 / 4;
+    grid-row: 3/4;
+    background: url('../images/image-about-dark.jpg') no-repeat;
+}
+    
+.section-image2 {
+    grid-column: 7 / 10;
+    grid-row: 3/4;
+    background: url('../images/image-about-light.jpg') no-repeat;
+}
+    
+.footer-description {
+    margin: 40px;
+    grid-column: 4/ 7;
+    grid-row: 3/4;
+}
+    
+.footer-description > h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+    
+@media (max-width: 1010px) {
+    .footer-description {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 750px) {
+    main {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    header {
+        position: fixed;
+        display: block;
+        width: 100vw;
+        margin: 0 auto;
+        color: black;
+    }
+
+    .top-title {
+        text-align: center;
+        margin: 17px 0 0 0;
+        color: var(--white);
+        
+        font-size: 25px;
+    }
+
+    main > section {
+        min-height: 220px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .text {
+        margin: 20px;
+    }
+
+    nav {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    nav ul {
+        background-color: var(--white);
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+    
+    nav ul li {
+        font-weight: 700;
+        list-style: none;
+        text-transform: lowercase;
+        margin: 0 10px;
+    }
+
+    .slide {   
+        display: none;
+    }
+
+    .slide.selected {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .section-image-slide1, .section-image-slide2, .section-image-slide3 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2 ;
+        background-size: cover;
+    }
+
+    .description {
+        grid-column: 1 / 2;
+        grid-row: 2/3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    } 
+    
+    .section-image-slide1 {
+        background: url('../images/desktop-image-hero-1.jpg') center no-repeat; 
+    }
+    
+    .section-image-slide2 {
+        background: url('../images/desktop-image-hero-2.jpg') center no-repeat;
+    }
+    
+    .section-image-slide3 {
+        background: url('../images/desktop-image-hero-3.jpg') center no-repeat;
+    }
+
+    .icon-nav[type=checkbox] + label {
+        margin-top: 15px;
+        position: fixed;
+        z-index: 2000;
+        background:url("../images/icon-hamburger.svg") center no-repeat;
+        width: 50px;
+        height: 40px;
+    }
+    
+    .icon-nav[type=checkbox]:checked + label {
+        background:url("../images/icon-close.svg") center no-repeat;
+    }
+
+    .mobileOn {
+        display: none;
+    }
+
+    .section-image1, .section-image2 {
+        background-size: cover;
+    } 
+}
